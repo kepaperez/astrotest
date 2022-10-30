@@ -1,38 +1,38 @@
-<ul>
-    <li><a href="/home">Home</a></li>
+<nav>
+  <ul>
+    <li><a href="/home">HOME</a></li>
     <li><a href="/page1">PAGE1</a></li>
     <li><a href="/page2">PAGE2</a></li>
   </ul>
-  
-  
+</nav>
+
 <style>
-ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
-  background-color: #333;
-}
+  nav {
+    background-color: #131313;
+    display: flex;
+    justify-content: center;
 
-li {
-  float: left;
-}
+  }
+  ul {
+    display: flex;
+    justify-content: start;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+  }
 
-li a {
-  display: block;
-  color: white;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
-}
+  li a {
+    font-weight: bold;
+    letter-spacing: 5px;
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 20px 24px;
+    text-decoration: none;
+  }
 
-li a:hover:not(.active) {
-  background-color: #111;
-}
-
-.active {
-  background-color: #04AA6D;
-}
+  li a:hover {
+    color: #25a2db;
+  }
 </style>
-
-
