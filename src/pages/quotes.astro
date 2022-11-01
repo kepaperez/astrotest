@@ -1,0 +1,51 @@
+---
+import MyLayout from "../layouts/MyLayout.astro";
+
+const reponse = await fetch("https://dummyjson.com/quotes");
+const data = await reponse.json();
+---
+
+<MyLayout>
+    <h1>QUOTES</h1>
+  {
+    data.quotes.map((quotes) => (
+      <a href={`/quotes/${quotes.id}`}>
+        <div class="quoteContainer">
+          <p >{quotes.quote}</p>
+          <div class="author" >{quotes.author}</div>
+        </div>
+        
+      </a>
+    ))
+  }
+</MyLayout>
+
+
+<style>
+    h1{
+        text-align: center;
+    }
+    a{
+        text-decoration: none;
+    }
+    .quoteContainer{
+        color: black;
+        text-decoration: none;
+   
+        background: #dfdede;
+        padding: 1.4rem;
+        margin: 1rem auto ;
+        border-radius: 7px;
+    }
+    .quoteContainer:hover{
+        background-color:#bebebe ;
+    }
+    .quoteContainer p{
+        margin: 0 0  1rem 0;
+        font-size:1.7rem;
+        font-weight: 600;
+    }
+    .author{
+        letter-spacing: 1.5px;
+    }
+</style>

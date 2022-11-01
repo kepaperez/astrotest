@@ -1,0 +1,27 @@
+---
+import MyLayout from "../../layouts/MyLayout.astro";
+
+//Crea los paths para cada quote de antemano
+export async function getStaticPaths() {
+  const reponse = await fetch("https://dummyjson.com/quotes");
+  const data = await reponse.json();
+
+  return data.quotes.map((quote) => ({
+    //valor de url
+    params: { quote: quote.id },
+    //data pora utilizar en ese path
+    props: {
+      quote,
+    },
+  }));
+
+}
+//saca la data que anteriormente guardamos
+const quote = Astro.props.quote
+---
+<MyLayout>
+    <h1>{quote.quote}</h1>
+    <p>{quote.author}</p>
+</MyLayout>
+
+
